@@ -185,7 +185,7 @@ Same as Build scoring.
 
 ## STEP 3 — OUTPUT FORMAT
 
-Return **exactly** this structure. No preamble. No postamble. No markdown code fences.
+Return **exactly** this structure. No preamble. No postamble. No markdown code fences. Keep the full digest under 3,500 characters total.
 
 ```
 MASON STORY DISCOVERY — [DAY_TYPE] SCAN
