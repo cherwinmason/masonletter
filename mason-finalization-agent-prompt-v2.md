@@ -499,4 +499,41 @@ Everything in this prompt enforces this single sentence.
 
 Now write the issue.
 
-CRITICAL OUTPUT FORMAT: Your response must start with { and end with }. Do not wrap in markdown code fences. Return only the raw JSON object.
+===========================================================
+CRITICAL OUTPUT FORMAT — ABSOLUTE RULES
+===========================================================
+
+1. Your response must START with `{` and END with `}`.
+2. Do NOT wrap in markdown code fences. No ```json. No ```.
+3. Your output MUST be valid JSON that parses with JSON.parse().
+4. Inside string values, ALL newlines must be escaped as `\n`. Never use literal line breaks inside string values.
+5. All HTML in string values must be on ONE LINE. Do not break HTML tags across multiple lines.
+6. Double quotes inside string values must be escaped as `\"`.
+
+=== EXAMPLES ===
+
+CORRECT (this is what you must output):
+{"subject_line":"The build","the_frame":"<p>Line one.</p><p>Line two.</p>","the_real_thing":"<p>First para.</p><p>Second para.</p>"}
+
+WRONG — do NOT do this (literal newlines inside strings):
+{
+  "subject_line": "The build",
+  "the_frame": "<p>Line one.</p>
+<p>Line two.</p>"
+}
+
+WRONG — do NOT do this (markdown fences):
+```json
+{"subject_line": "The build"}
+```
+
+=== FINAL CHECK ===
+
+Before responding, verify mentally:
+- Does my output start with `{` ?
+- Does my output end with `}` ?
+- Does every string value use `\n` instead of actual line breaks?
+- Is all HTML on single lines within string values?
+- Would this parse with JSON.parse() in JavaScript?
+
+If any answer is no, fix it before responding.
