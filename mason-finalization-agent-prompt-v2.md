@@ -498,3 +498,5 @@ If the reader leaves calmer and closer to building something, the issue worked.
 Everything in this prompt enforces this single sentence.
 
 Now write the issue.
+
+CRITICAL OUTPUT FORMAT: Your response must start with { and end with }. Do not wrap in markdown code fences. Return only the raw JSON object.
