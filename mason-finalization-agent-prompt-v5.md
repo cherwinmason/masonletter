@@ -276,154 +276,125 @@ Required for BUILD days. 3-4 rows of data.
 
 ---
 
-## 12. THE VISUAL VOCABULARY — ONE DIAGRAM PER ISSUE, HARD RULE
+## 12. THE FLOW BLOCK — ONE PER ISSUE, HARD RULE
 
-**Every Mason issue MUST contain at least one SVG diagram.**
+**Every Mason issue MUST contain one Flow Block.**
 
-If your output does not contain a valid `<svg>` tag followed by actual SVG code, the issue has failed the visual vocabulary requirement and you have not completed the task. This is non-negotiable — it is Mason's visual signature.
+The Flow Block is Mason's visual signature. It shows a system in three moves: Input → Process → Output. Pure HTML, no SVG (SVG does not render reliably in Gmail). Renders perfectly in every email client.
 
-You have exactly TWO diagram types to choose from. Pick the one that fits the story. Copy the full SVG template and fill in the bracketed variables. Do NOT invent other diagram types. Do NOT output text labels instead of SVG. Do NOT skip the diagram.
+Place the Flow Block between Chapter 1 and Chapter 2 of the body.
 
 ---
 
-### DIAGRAM TYPE A: System Flow
+### THE FLOW BLOCK TEMPLATE
 
-**Use when:** the story is about HOW a system is wired — data sources, processing, output.
-
-**Fill in the bracketed [VARIABLES]:** input labels (3-5 of them), AI layer description, output label, human step label.
-
-Copy this entire block exactly, filling only the [BRACKETED] parts:
+Copy this entire block exactly. Fill only the [BRACKETED] parts with content specific to today's story.
 
 ```html
 <tr>
-<td class="padding-outer" style="background-color:#F5F1E8;padding:24px 56px 24px 56px;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#B85C3D;letter-spacing:0.3em;text-transform:uppercase;font-weight:700;margin-bottom:16px;">Fig. 01 &middot; System flow</div>
-<div style="background-color:#FAF8F3;border:1px solid #E8E3D8;border-radius:16px;padding:36px 24px;">
-<svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;height:auto;display:block;margin:0 auto;">
-<defs>
-<filter id="ssA" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="0" dy="2"/><feComponentTransfer><feFuncA type="linear" slope="0.12"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<linearGradient id="aiGradA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1A1A1A"/><stop offset="100%" stop-color="#0A0A0A"/></linearGradient>
-<linearGradient id="alertGradA" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C76B4A"/><stop offset="100%" stop-color="#B85C3D"/></linearGradient>
-</defs>
-<text x="90" y="25" font-family="JetBrains Mono, monospace" font-size="10" fill="#B85C3D" text-anchor="middle" font-weight="700" letter-spacing="3">INPUT</text>
-<g filter="url(#ssA)">
-<rect x="20" y="45" width="140" height="42" rx="21" fill="#FFFFFF" stroke="#E8E3D8" stroke-width="1"/>
-<text x="90" y="71" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#0A0A0A" font-weight="500">[INPUT 1]</text>
-<rect x="20" y="100" width="140" height="42" rx="21" fill="#FFFFFF" stroke="#E8E3D8" stroke-width="1"/>
-<text x="90" y="126" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#0A0A0A" font-weight="500">[INPUT 2]</text>
-<rect x="20" y="155" width="140" height="42" rx="21" fill="#FFFFFF" stroke="#E8E3D8" stroke-width="1"/>
-<text x="90" y="181" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#0A0A0A" font-weight="500">[INPUT 3]</text>
-<rect x="20" y="210" width="140" height="42" rx="21" fill="#FFFFFF" stroke="#E8E3D8" stroke-width="1"/>
-<text x="90" y="236" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#0A0A0A" font-weight="500">[INPUT 4]</text>
-<rect x="20" y="265" width="140" height="42" rx="21" fill="#FFFFFF" stroke="#E8E3D8" stroke-width="1"/>
-<text x="90" y="291" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#0A0A0A" font-weight="500">[INPUT 5]</text>
-</g>
-<g stroke="#B85C3D" stroke-width="1.5" fill="none" opacity="0.6">
-<path d="M 165 66 Q 220 140, 240 170"/>
-<path d="M 165 121 Q 210 150, 240 178"/>
-<path d="M 165 176 Q 210 182, 240 186"/>
-<path d="M 165 231 Q 210 210, 240 195"/>
-<path d="M 165 286 Q 220 230, 240 203"/>
-</g>
-<text x="320" y="145" font-family="JetBrains Mono, monospace" font-size="10" fill="#B85C3D" text-anchor="middle" font-weight="700" letter-spacing="3">[AI LAYER LABEL, e.g. "AI LAYER" or "PROCESSING"]</text>
-<g filter="url(#ssA)">
-<rect x="240" y="158" width="160" height="88" rx="16" fill="url(#aiGradA)"/>
-<text x="320" y="190" font-family="Fraunces, Georgia, serif" font-size="17" fill="#FAFAF7" text-anchor="middle" font-weight="600" font-style="italic">[AI LINE 1]</text>
-<text x="320" y="212" font-family="Fraunces, Georgia, serif" font-size="17" fill="#FAFAF7" text-anchor="middle" font-weight="600" font-style="italic">[AI LINE 2]</text>
-<text x="320" y="232" font-family="JetBrains Mono, monospace" font-size="9" fill="#999" text-anchor="middle">[AI SUBCAPTION]</text>
-</g>
-<g stroke="#B85C3D" stroke-width="2.5" fill="none"><path d="M 405 202 L 445 202" stroke-linecap="round"/></g>
-<polygon points="443,196 457,202 443,208" fill="#B85C3D"/>
-<text x="530" y="145" font-family="JetBrains Mono, monospace" font-size="10" fill="#B85C3D" text-anchor="middle" font-weight="700" letter-spacing="3">[OUTPUT LABEL, e.g. "ALERT" or "OUTPUT"]</text>
-<g filter="url(#ssA)">
-<rect x="460" y="158" width="140" height="88" rx="16" fill="url(#alertGradA)"/>
-<text x="530" y="197" font-family="Fraunces, Georgia, serif" font-size="18" fill="#FAFAF7" text-anchor="middle" font-weight="700">[OUTPUT TITLE]</text>
-<text x="530" y="218" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(250,250,247,0.85)" text-anchor="middle">[output subtitle]</text>
-</g>
-<g stroke="#0A0A0A" stroke-width="1.5" fill="none" stroke-dasharray="4,4"><path d="M 530 246 L 530 290"/></g>
-<polygon points="525,288 530,300 535,288" fill="#0A0A0A"/>
-<g filter="url(#ssA)">
-<rect x="450" y="308" width="160" height="56" rx="16" fill="#FAF8F3" stroke="#0A0A0A" stroke-width="1.5" stroke-dasharray="5,4"/>
-<text x="530" y="332" font-family="Fraunces, Georgia, serif" font-size="15" fill="#0A0A0A" text-anchor="middle" font-weight="600">[HUMAN STEP LABEL]</text>
-<text x="530" y="351" font-family="JetBrains Mono, monospace" font-size="9" fill="#666" text-anchor="middle">[human subcaption]</text>
-</g>
-</svg>
+<td class="padding-outer" style="background-color:#F5F1E8;padding:24px 56px 40px 56px;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#B85C3D;letter-spacing:0.3em;text-transform:uppercase;font-weight:700;margin-bottom:16px;">Fig. 01 &middot; [FIGURE TITLE — 3-6 words, e.g. "The system in three moves"]</div>
+
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#FAF8F3;border:1px solid #E8E3D8;border-radius:16px;">
+<tr>
+<td style="padding:36px 28px;">
+
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+
+<!-- INPUT -->
+<td width="30%" style="vertical-align:top;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#B85C3D;letter-spacing:0.25em;text-transform:uppercase;font-weight:700;margin-bottom:10px;">Input</div>
+<div style="background-color:#FFFFFF;border:1px solid #E8E3D8;border-radius:12px;padding:16px;">
+<div style="font-family:'Fraunces',Georgia,serif;font-size:18px;color:#0A0A0A;font-weight:600;margin-bottom:4px;letter-spacing:-0.015em;">[INPUT TITLE — 2-4 words, e.g. "300+ analysts"]</div>
+<div style="font-family:'Inter',Arial,sans-serif;font-size:12px;color:#666;line-height:1.4;">[INPUT DESCRIPTION — 8-15 words, e.g. "Feeding data from IPC index, gov statistics, economic indicators."]</div>
 </div>
-<div style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#888;font-style:italic;margin-top:14px;line-height:1.5;">[ONE-LINE CAPTION EXPLAINING THE DIAGRAM]</div>
+</td>
+
+<td width="5%" style="vertical-align:middle;text-align:center;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#B85C3D;font-weight:700;">&rarr;</div>
+</td>
+
+<!-- PROCESS -->
+<td width="30%" style="vertical-align:top;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#B85C3D;letter-spacing:0.25em;text-transform:uppercase;font-weight:700;margin-bottom:10px;">Process</div>
+<div style="background-color:#0A0A0A;border-radius:12px;padding:16px;">
+<div style="font-family:'Fraunces',Georgia,serif;font-size:18px;color:#FAFAF7;font-weight:600;margin-bottom:4px;font-style:italic;letter-spacing:-0.015em;">[PROCESS TITLE — 2-4 words, e.g. "Predictive modeling"]</div>
+<div style="font-family:'Inter',Arial,sans-serif;font-size:12px;color:#AAA;line-height:1.4;">[PROCESS DESCRIPTION — 8-15 words, e.g. "Time-series forecasting plus anomaly detection."]</div>
+</div>
+</td>
+
+<td width="5%" style="vertical-align:middle;text-align:center;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:18px;color:#B85C3D;font-weight:700;">&rarr;</div>
+</td>
+
+<!-- OUTPUT -->
+<td width="30%" style="vertical-align:top;">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#B85C3D;letter-spacing:0.25em;text-transform:uppercase;font-weight:700;margin-bottom:10px;">Output</div>
+<div style="background-color:#B85C3D;border-radius:12px;padding:16px;">
+<div style="font-family:'Fraunces',Georgia,serif;font-size:18px;color:#FAFAF7;font-weight:700;margin-bottom:4px;letter-spacing:-0.015em;">[OUTPUT TITLE — 2-4 words, e.g. "Risk flag"]</div>
+<div style="font-family:'Inter',Arial,sans-serif;font-size:12px;color:rgba(250,250,247,0.85);line-height:1.4;">[OUTPUT DESCRIPTION — 8-15 words, e.g. "Surfaced to humans before crisis compounds."]</div>
+</div>
+</td>
+
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+<div style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#888;font-style:italic;margin-top:14px;line-height:1.5;">[ONE-LINE CAPTION — 15-25 words explaining the flow, e.g. "Three stages: ingest, process, surface. The human still owns the decision."]</div>
 </td>
 </tr>
 ```
 
 ---
 
-### DIAGRAM TYPE B: Time Collapse (Before / After)
+### HOW TO FILL THE FLOW BLOCK
 
-**Use when:** the story is about efficiency gains, time saved, or cycle compression. Or comparing two things (old vs new, slow vs fast, expensive vs cheap).
+For any story, identify these three things:
 
-**Fill in the bracketed [VARIABLES]:** before label, before description, after label, after description, time unit markers.
+1. **Input:** what goes into the system. Could be data, files, users, prompts, events. Name the source in 2-4 words.
 
-Copy this entire block exactly, filling only the [BRACKETED] parts:
+2. **Process:** what the AI or system actually does. Name the core operation in 2-4 words. This is almost always some kind of modeling, classification, generation, or reasoning.
 
-```html
-<tr>
-<td class="padding-outer" style="background-color:#F5F1E8;padding:16px 56px 40px 56px;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#B85C3D;letter-spacing:0.3em;text-transform:uppercase;font-weight:700;margin-bottom:16px;">Fig. 01 &middot; [DIAGRAM TITLE, e.g. "The time collapse" or "The cost collapse"]</div>
-<div style="background-color:#FAF8F3;border:1px solid #E8E3D8;border-radius:16px;padding:36px 28px;">
-<svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:504px;height:auto;display:block;margin:0 auto;">
-<defs>
-<filter id="ssB" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="2"/><feOffset dx="0" dy="2"/><feComponentTransfer><feFuncA type="linear" slope="0.1"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
-<text x="20" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#888" font-weight="700" letter-spacing="3">BEFORE</text>
-<text x="20" y="55" font-family="Fraunces, Georgia, serif" font-size="24" fill="#0A0A0A" font-weight="600" letter-spacing="-0.02em">[BEFORE VALUE, e.g. "12 weeks" or "$47/month"]</text>
-<g filter="url(#ssB)"><rect x="20" y="75" width="520" height="28" rx="14" fill="#E8E3D8" stroke="#C7BFA8" stroke-width="1"/></g>
-<g stroke="#888" stroke-width="1"><line x1="150" y1="75" x2="150" y2="103"/><line x1="280" y1="75" x2="280" y2="103"/><line x1="410" y1="75" x2="410" y2="103"/></g>
-<g font-family="JetBrains Mono, monospace" font-size="10" fill="#888">
-<text x="20" y="120">[tick 0]</text>
-<text x="150" y="120">[tick 1]</text>
-<text x="280" y="120">[tick 2]</text>
-<text x="410" y="120">[tick 3]</text>
-<text x="500" y="120" text-anchor="end">[tick end]</text>
-</g>
-<text x="280" y="142" font-family="Inter, sans-serif" font-size="12" fill="#666" font-style="italic" text-anchor="middle">[BEFORE DESCRIPTION — 10-15 words]</text>
-<text x="20" y="185" font-family="JetBrains Mono, monospace" font-size="10" fill="#B85C3D" font-weight="700" letter-spacing="3">AFTER</text>
-<text x="20" y="210" font-family="Fraunces, Georgia, serif" font-size="24" fill="#0A0A0A" font-weight="600" letter-spacing="-0.02em">[AFTER VALUE, e.g. "Near-realtime" or "$0"]</text>
-<g filter="url(#ssB)">
-<circle cx="35" cy="240" r="14" fill="#B85C3D"/>
-<circle cx="35" cy="240" r="20" fill="none" stroke="#B85C3D" stroke-width="1.5" opacity="0.4"/>
-<circle cx="35" cy="240" r="28" fill="none" stroke="#B85C3D" stroke-width="1" opacity="0.2"/>
-</g>
-<text x="75" y="245" font-family="Inter, sans-serif" font-size="14" fill="#0A0A0A" font-weight="500">[AFTER DESCRIPTION — 10-15 words]</text>
-</svg>
-</div>
-<div style="font-family:'Inter',Arial,sans-serif;font-size:13px;color:#888;font-style:italic;margin-top:14px;line-height:1.5;">[ONE-LINE CAPTION — 15-25 WORDS]</div>
-</td>
-</tr>
-```
+3. **Output:** what comes out. An alert, a draft, a decision, a flag, a generated artifact.
+
+Examples across different story types:
+
+**Story: AI hunger monitoring system**
+- Input: "300+ analysts" / "Feeding data from IPC index, gov statistics, economic indicators."
+- Process: "Predictive modeling" / "Time-series forecasting plus anomaly detection."
+- Output: "Risk flag" / "Surfaced to humans before crisis compounds."
+
+**Story: AI customer support agent**
+- Input: "Inbound tickets" / "Intercom, email, and Slack all feeding into one queue."
+- Process: "Classifier + drafter" / "Sonnet 4.5 handles triage, writes draft replies."
+- Output: "Approval queue" / "Human ships with one click. Most take under ten seconds."
+
+**Story: AI security research (Claude Mythos)**
+- Input: "Compiled binaries" / "No source code. Just the assembly and call graphs."
+- Process: "Exploit reasoning" / "Finds bugs, writes exploits, validates they work."
+- Output: "Working exploit" / "Complete with ROP chain, ready for the patch team to reverse-engineer."
+
+**Story: AI content review pipeline**
+- Input: "Writer drafts" / "Raw drafts pushed to shared folder at end of day."
+- Process: "Review agent" / "Flags voice violations, banned words, length issues."
+- Output: "Edit list" / "Specific line-level suggestions the editor can accept or reject."
 
 ---
 
-### WHICH DIAGRAM TO PICK
+### ABSOLUTE RULES FOR THE FLOW BLOCK
 
-- Story about **how a system is built** (data flows, inputs → processing → output) → **Type A: System Flow**
-- Story about **speed / time / cost improvement** (before vs after, old vs new, slow vs fast) → **Type B: Time Collapse**
-- Story about **comparing two things** (proprietary vs open, tool X vs tool Y) → **Type B: Time Collapse** (the before/after format works for any two-thing comparison)
-
-If you are unsure, pick **Type B**. It fits almost any story.
-
----
-
-### ABSOLUTE RULES FOR THE DIAGRAM
-
-1. Your output MUST contain an `<svg>` tag. If it doesn't, you have failed.
-2. Use ONLY the two templates above. Do NOT invent other diagram formats.
-3. Do NOT output text-only substitutes like "Fig. 01: A did X. B did Y." You must output actual SVG code.
-4. Copy the full SVG block. Fill only the [BRACKETED] parts.
-5. Place the diagram between sections 1 and 2 of the body.
-6. Keep the Figure number (Fig. 01). Only one diagram per issue.
+1. Every issue must contain the Flow Block HTML exactly as templated.
+2. Fill only the bracketed `[VARIABLES]`. Do NOT modify the HTML structure.
+3. Place it between Chapter 1 and Chapter 2 of the body.
+4. Keep figure number as "Fig. 01" (there's only one diagram per issue).
+5. No SVG anywhere. Pure HTML tables only.
+6. Three cards: white (input), black (process), clay (output). Always these three colors in that order.
 
 ---
-
-
 
 ## 13. VOICE — GOOD vs BAD
 
@@ -467,7 +438,7 @@ revolutionary, game-changer, game-changing, disrupt, disrupting, disruption, tra
 
 1. **Mason takes a position** — not a summary
 2. **Hero number anchors the story** — pick the strongest single number
-3. **Every issue has exactly one SVG diagram** — Type A (System Flow) or Type B (Time Collapse). Your output MUST contain an `<svg>` tag.
+3. **Every issue has exactly one Flow Block** — Input → Process → Output. Pure HTML (no SVG). Placed between Chapter 1 and Chapter 2.
 4. **One pull quote** — a sentence from Mason's own writing that earns pullout
 5. **One source block quote** — direct quote from the article, with attribution
 6. **Receipts block on BUILD days — MANDATORY. If this is a BUILD day issue and your output does not contain the words "The Receipts" inside a black-background section, you have failed. The receipts must be OUTCOME numbers (hours saved, dollars retired, weeks compressed), not feature specs.**
@@ -484,7 +455,7 @@ Read your draft once through:
 1. Does the headline pass the 8-word test?
 2. Does the hero number make the stakes clear?
 3. Does the frame state a position, not a summary?
-4. Is there at least one diagram from the visual vocabulary?
+4. Is there exactly one Flow Block with Input, Process, and Output cards?
 5. Is there exactly one pull quote, and does it earn pullout?
 6. Is there one block quote from the source with proper attribution?
 7. BUILD day: is there a Receipts block with outcome numbers?
@@ -506,7 +477,7 @@ Your response must:
 - Contain ZERO text before or after the HTML
 - Replace every `{{VARIABLE}}` with actual content
 - Meet the day-type word count target
-- Include mandatory hero number, diagram, source quote, pull quote
+- Include mandatory hero number, Flow Block, source quote, pull quote
 - Include Receipts block on BUILD days
 
 Now write the issue. Return complete HTML only.
