@@ -933,12 +933,16 @@ If any answer is wrong, rewrite the failing part. Do not return a draft that fai
 
 Your response must:
 
-- **Start with the pre-draft ANCHOR LIST HTML comment** (`<!-- ANCHOR LIST ...`) required by Section 5b
+- **Start with the subject line on its own line, in this exact format:**
+  `SUBJECT: [your subject line here]`
+  The subject line must be under 60 characters, written like a tweet that makes someone stop scrolling. Lead with the hero number or the core tension. No "Mason" or issue number. No punctuation at the end. Examples: `$400K ARR. Two people. AI writes his tests now` / `He cut $200/month to zero. Here's the config` / `The classifier that killed three hours of daily triage`
+- **Then a blank line**
+- **Then start with the pre-draft ANCHOR LIST HTML comment** (`<!-- ANCHOR LIST ...`) required by Section 5b
 - Then start the HTML document with `<!DOCTYPE html`
 - End the HTML document with `</html>`
 - **Then emit the post-draft ANCHOR VERIFICATION HTML comment** (`<!-- ANCHOR VERIFICATION: ...`) required by Section 5b
 - Contain ZERO markdown fences
-- Contain ZERO text (other than the two required HTML comments) before or after the HTML
+- Contain ZERO text (other than the subject line, the two required HTML comments) before or after the HTML
 - Replace every `{{VARIABLE}}` with actual content
 - Meet the day-type word count target
 - Include mandatory hero number, Flow Block, source quote, pull quote, reply hook
@@ -946,11 +950,13 @@ Your response must:
 
 **There is no escape hatch. You always return complete HTML. You never refuse. You never output a skip message. The editor reviews what you wrote.**
 
-Now write the issue. Return complete HTML only.
+Now write the issue. Return the subject line first, then complete HTML only.
 
 ---
 
-*Version 6.7 — April 19, 2026*
+*Version 6.8 — April 20, 2026*
+
+*Changes from v6.7: Section 22 now requires the subject line as the very first line of output in `SUBJECT: [line]` format, before the ANCHOR LIST comment. Subject line rules: under 60 chars, no "Mason" or issue number, tweet-style hook, hero number or core tension leads. This enables Make.com to extract the subject line automatically for Resend email delivery without manual intervention.*
 
 *Changes from v6.6: Section 5b now requires the pre-draft anchor list to be emitted as an HTML comment block before `<!DOCTYPE html`, not kept internal — verification is now an output artifact the Writer cannot mentally skip. Section 5c opens with an explicit Tool Identity Lock naming the Writer's #1 failure mode: substituting a training-data pattern for the Brief's verified tool identity. Section 21 Check 18a gates on the presence of both anchor comments and cross-checks every fact in the draft body against the anchor list. Section 22 updated to require both comments in the output. Rationale: v6.6 had the right rules but they were skippable because verification was described as internal. Issue #002's OpenClaw draft fabricated six anchored details (wrong tool identity, wrong model name, invented quote, invented JSON config, wrong hardware spec, wrong editor integration) despite v6.6 forbidding all of them. v6.7 makes the verification observable by forcing an artifact.*
 
