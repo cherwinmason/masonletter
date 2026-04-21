@@ -338,10 +338,10 @@ Fill every one of these:
 | `{{CLOSER_THESIS}}` | Closer line 1 — the pattern takeaway | 15-30 words, big Fraunces white, the one sentence the reader should remember; may include `<span style="color:#B85C3D;font-style:italic;">italicized phrase</span>` |
 | `{{CLOSER_QUESTION}}` | Closer line 2 — the open loop | 10-20 words, italic clay Fraunces, an open question that names what the reader is sitting with |
 | `{{CLOSER_HANDOFF}}` | Closer line 3 — the bridge to our consulting work | 8-14 words, small mono uppercase, bridges to the Build With Us CTA below. Default pattern: "If it's an AI system — we build those." |
-| `{{QUARRY_INTAKE_URL}}` | Primary CTA button link | Use `https://readmason.com/#work` |
-| `{{QUARRY_WORK_URL}}` | Secondary CTA text link | Use `https://readmason.com/#work` |
-| `{{UNSUBSCRIBE_URL}}` | Unsubscribe link | Use `#` placeholder |
-| `{{ARCHIVE_URL}}` | Archive link | Use `#` placeholder |
+| `{{QUARRY_INTAKE_URL}}` | Primary CTA button link | Use `https://readmason.com/build` |
+| `{{QUARRY_WORK_URL}}` | Secondary CTA text link | Use `https://readmason.com/build` |
+| `{{UNSUBSCRIBE_URL}}` | Unsubscribe link | Use `{{{RESEND_UNSUBSCRIBE_URL}}}` — Resend replaces this with a per-recipient unsubscribe link at send time |
+| `{{ARCHIVE_URL}}` | Archive link | Use `https://readmason.com` until a real archive exists |
 
 ---
 
