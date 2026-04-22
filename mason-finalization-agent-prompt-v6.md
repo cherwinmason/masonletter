@@ -209,6 +209,17 @@ When the source gives multiple options and doesn't explicitly recommend one, pic
 **6. Builder names, handles, and attribution.**
 Use the full name as shown in the source byline. Do not shorten a real name to match a social handle (e.g., handle `mzunain` → do not write "Muhammad Zunain" if the byline is "Muhammad Zulqarnain"). Do not attribute characteristics to the builder that the source doesn't state (e.g., "the builder has been running this for weeks" when the source post is new).
 
+**9. Dates, times, day-of-week labels, and schedule inferences.**
+If the source gives a date ("May 12") without explicitly naming the day of the week ("Tuesday"), you do not infer the day label — even if the date-to-day mapping is factually correct. If the source gives a time ("2:30 PM") without naming the day it falls on, you do not assign a day. If the source gives multiple session times without grouping them under a named day, you do not cluster them into days based on pattern-matching.
+
+The failure mode: the Writer sees "May 12, 3:00 PM" in one class title and "3:30 PM" in another, and infers both are on the same day — or worse, pattern-matches "conference day one = Monday" and starts labeling everything. The source is the only authority for day labels and schedule grouping.
+
+The test: for every schedule claim in the draft, ask — did the source literally say this day, this time, in this combination? If you're reconstructing schedule details from date math or conference-agenda pattern matching, stop and use only what the source states verbatim.
+
+Also banned as schedule inferences: "opening day," "closing day," "first day of the conference," "day one," "day two," "the final session," unless the source uses those exact framings. Use the calendar date the source provides.
+
+When schedule information is genuinely ambiguous in the source, omit the day label and give only the information the source provides. "Amelia Ibarra building an AI VP of Marketing live on stage (May 12, 4:15 PM)" is honest. "Amelia Ibarra building an AI VP of Marketing live on stage (Monday 4:15pm)" is fabricated if the source never said Monday.
+
 ### The verification pass — mandatory output artifact
 
 Before writing any HTML, scan the `ARTICLE CONTENT` and the Researcher Brief's Section 1 anchors, and emit an HTML comment block at the very top of your response — BEFORE `<!DOCTYPE html` — in this exact shape:
@@ -223,6 +234,7 @@ QUOTES I WILL USE (verbatim from Brief §1.4, word-for-word): [each candidate qu
 CODE/CONFIG IN SOURCE (verbatim, or "none in source"): [each block]
 NUMBERS I WILL USE (each with scope, mapped to Brief §1.6 entry): [list — format each as "NUMBER (scope, e.g. 'total across all apps' or 'per function')"]
 SUBJECT ATTRIBUTION (who did what, from Brief §3.1/§3.2): [list — format each as "ACTION → exact subject from brief"]
+DATES AND TIMES FROM SOURCE (verbatim, with day label only if source states it): [list — format each as "DATE/TIME (with day? yes/no) — e.g., 'May 12, 3:00 PM (no day label in source)' or 'Wednesday May 13, 9:00 AM (day label in source)'"]
 RECOMMENDED MODEL/VERSION (from source, verbatim): [e.g., "Qwen 2.5 14B"]
 BRIEF §4.5 TRAPS TO AVOID (verbatim from brief): [list]
 BRIEF §5 FAILURE MODES FLAGGED (verbatim from brief): [list]
@@ -1007,10 +1019,11 @@ Read your draft once through and answer each question:
 17. **Source-literal fidelity (Section 7b):** Apply the six-category check. Every product/tool name matches source verbatim. Every direct quote is a verbatim string. Every URL appears literally in source. Every code block matches source's language and content. Every model recommendation matches source's explicit recommendation. Builder names match full byline. Thin Playbook is better than fabricated Playbook.
 18. **Number traceability + scope preservation:** Every specific number traces to a specific string in the source. Zero invented numbers. Every number preserves its original scope — no rescoping totals to subsets, no inventing derivative numbers for units the source didn't measure.
 19. **Subject attribution:** Every "who did what" claim uses the exact subject from Researcher Brief §3.1/§3.2. No collectivizing individual actions to teams. No personalizing team actions to founders.
-20. **Banned words:** Zero occurrences from Section 20?
-21. **Translation Rule (Section 9.5):** Every chapter opens with plain-English frame. Every unfamiliar technical term gets inline translation on first use. Playbook applies Translation Pass. Solo-founder reader test passes.
-22. **Researcher Brief used (Section 7c):** (a) Tool identity matches Researcher's verified official description — NOT the source article's framing. (b) Anchors drawn from Section 1 of brief, verbatim. (c) Closer thesis connects to Researcher's editorial thesis (or demonstrably stronger angle supported by source). (d) Draft avoids every framing on Researcher's "what NOT to do" list. (e) Playbook shape respects Researcher's readiness assessment. (f) Pre-draft ANCHOR LIST comment emitted before `<!DOCTYPE html`. (g) Post-draft ANCHOR VERIFICATION comment emitted after `</html>`. (h) Every fact in draft body traces to an ANCHOR LIST entry.
-23. **Format:** Pure HTML (plus required anchor comments), no markdown fences, no preamble, no JSON?
+20. **Date/time/schedule fidelity:** Every date, time, day-of-week label, and schedule grouping in the draft traces to the source literally. No inferred day labels ("Monday," "Wednesday") when the source only gave a date ("May 12"). No "opening day" / "day one" / "closing session" framings unless the source used them. If the source was silent on a schedule detail, the draft is silent too.
+21. **Banned words:** Zero occurrences from Section 20?
+22. **Translation Rule (Section 9.5):** Every chapter opens with plain-English frame. Every unfamiliar technical term gets inline translation on first use. Playbook applies Translation Pass. Solo-founder reader test passes.
+23. **Researcher Brief used (Section 7c):** (a) Tool identity matches Researcher's verified official description — NOT the source article's framing. (b) Anchors drawn from Section 1 of brief, verbatim. (c) Closer thesis connects to Researcher's editorial thesis (or demonstrably stronger angle supported by source). (d) Draft avoids every framing on Researcher's "what NOT to do" list. (e) Playbook shape respects Researcher's readiness assessment. (f) Pre-draft ANCHOR LIST comment emitted before `<!DOCTYPE html`. (g) Post-draft ANCHOR VERIFICATION comment emitted after `</html>`. (h) Every fact in draft body traces to an ANCHOR LIST entry.
+24. **Format:** Pure HTML (plus required anchor comments), no markdown fences, no preamble, no JSON?
 
 If any answer is wrong, rewrite the failing part. Do not return a draft that fails any of these checks.
 
@@ -1038,6 +1051,10 @@ Otherwise, your response must:
 Now: run Section 5 pre-flight. If it passes, write the issue. Return complete HTML only (with required anchor comments).
 
 ---
+*Version 7.1 — April 22, 2026*
+
+*Changes from v7.0 → v7.1: Added Category 9 (Dates, times, day-of-week labels, and schedule inferences) to Section 7b in response to Issue 007 draft fabrications where the Writer inferred "Monday" for May 12 and "Wednesday" for sessions where the source gave only times. Extended the Anchor List comment to require a DATES AND TIMES FROM SOURCE section mapping each schedule reference to whether the source stated a day label. Added final-check item 20 to Section 22. Rationale: v7.0 closed numerical and attribution gaps but left schedule inferences unguarded. A date-to-day mapping may be factually correct but is still a fabrication if the source didn't state it. Mason reports what the source says, not what the calendar implies.*
+
 *Version 7.0 — April 22, 2026*
 
 *Changes from v6.9 → v7.0: Added two new locked categories in Section 7b — (7) numbers with their original scope, (8) subject attribution — in response to Issue 006 fabrications where the Writer rescoped "800,000 uses across 12+ apps" into "thousands of inquiries for QBee" and attributed team actions ("SaaStr team shipped 12 apps") to the founder personally ("Jason Lemkin shipped 12 apps"). Added POOR FIT handling in Section 7c: the Writer now explicitly uses the Researcher's counter-thesis to build compatible angles when the source doesn't naturally carry the day-type. Extended anchor list comment to require scope annotation on every number and subject attribution mapping. Added two new final-check items (18, 19) to Section 22. Paired with Researcher v3.2. Rationale: Issue 006 had a solid thesis but leaked three fabrications past Section 7b's existing guardrails. v7.0 closes the gaps.*
